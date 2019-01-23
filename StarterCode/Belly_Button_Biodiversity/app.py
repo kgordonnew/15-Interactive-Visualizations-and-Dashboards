@@ -1,5 +1,9 @@
 import os
 
+import plotly.plotly as py
+import plotly.tools as tls
+import matplotlib.pyplot as plt
+
 import pandas as pd
 import numpy as np
 

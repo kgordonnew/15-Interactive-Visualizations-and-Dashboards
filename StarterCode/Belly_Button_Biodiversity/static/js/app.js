@@ -33,6 +33,33 @@ function buildCharts(newSample) {
     d3.json(`/samples/${newSample}`).then((sampleNames) => {
     console.log(sampleNames);
     // @TODO: Build a Bubble Chart using the sample data
+      var xbubval = sampleNames.otu_ids;
+      var ybubval = sampleNames.svals;
+      var bubsize = sampleNames.ybubval + 5;
+      var bubcolor = sampleNames.otu_ids;
+      var textval = sampleNames.otu_lables;
+
+      var bubdata = {
+        x: xbubval,
+        y: ybubval,
+        text:  textval,
+        mode:  'markers',
+        marker:  {
+          color: bubcolor,
+          size: bubsize
+        }
+      };
+
+      var data = [bubdata];
+      var layout = {
+        xaxis:  { title:  "OTU ID"},
+      };
+
+      Plotly.plot('bubble', data, layout);
+
+      
+
+
     // @TODO: Build a Pie Chart
     var piedata = sampleNames.sample_values;
     var pieID = sampleNames.otu_ids;
